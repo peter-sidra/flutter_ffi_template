@@ -1,6 +1,7 @@
+import 'dart:ffi';
+import 'package:ffi/ffi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ffi_template/native_lib/native_lib.dart';
-import 'package:ffi/ffi.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
     final jsoncppMsg = jsoncppCharPtr.cast<Utf8>().toDartString();
 
     // Free the char* returned from the native library
-    calloc.free(jsoncppCharPtr);
+    nativeLib.native_free(jsoncppCharPtr.cast<Void>());
+    // This crashes on windows for some reason, so i had to write my own free function
+    // calloc.free(jsoncppCharPtr);
 
     return MaterialApp(
       title: "FFI Example",
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
+                child: SelectableText(
                   "JsonCpp Example\n$jsoncppMsg",
                   style: Theme.of(context).textTheme.headline4,
                 ),

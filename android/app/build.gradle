@@ -73,7 +73,7 @@ android {
         // Encapsulates your CMake build configurations.
         cmake {
             // Provides a relative path to your CMake build script.
-            path "../../ffi/src/CMakeLists.txt"
+            path "../../ffi/CMakeLists.txt"
             version "3.18.0+"
         }
     }

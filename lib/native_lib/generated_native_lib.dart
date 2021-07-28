@@ -53,6 +53,19 @@ class GeneratedNativeLib {
       _lookup<ffi.NativeFunction<_c_jsoncpp_example>>('jsoncpp_example');
   late final _dart_jsoncpp_example _jsoncpp_example =
       _jsoncpp_example_ptr.asFunction<_dart_jsoncpp_example>();
+
+  void native_free(
+    ffi.Pointer<ffi.Void> ptr,
+  ) {
+    return _native_free(
+      ptr,
+    );
+  }
+
+  late final _native_free_ptr =
+      _lookup<ffi.NativeFunction<_c_native_free>>('native_free');
+  late final _dart_native_free _native_free =
+      _native_free_ptr.asFunction<_dart_native_free>();
 }
 
 typedef _typedefC_1 = ffi.Void Function(
@@ -80,3 +93,11 @@ typedef _dart_add = int Function(
 typedef _c_jsoncpp_example = ffi.Pointer<ffi.Int8> Function();
 
 typedef _dart_jsoncpp_example = ffi.Pointer<ffi.Int8> Function();
+
+typedef _c_native_free = ffi.Void Function(
+  ffi.Pointer<ffi.Void> ptr,
+);
+
+typedef _dart_native_free = void Function(
+  ffi.Pointer<ffi.Void> ptr,
+);
