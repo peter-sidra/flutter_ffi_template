@@ -6,6 +6,8 @@ A template for developing flutter apps using native C/C++ code. This template us
 - [Ninja](https://github.com/ninja-build/ninja)
 - [CMake](https://github.com/Kitware/CMake)
 - [VCPKG](https://github.com/microsoft/vcpkg)
+- Set the environment variable ```VCPKG_DIR``` to the VCPKG installation directory.
+- Set the environment variable ```ANDROID_NDK_HOME``` to the NDK installation directory.
 
 ## Project Structure
 The native code is located in [/ffi](ffi). The [CMakeLists.txt](ffi/CMakeLists.txt) build script is invoked automatically by gradle for android and CMake for Windows (and linux).
